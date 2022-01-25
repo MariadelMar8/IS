@@ -24,6 +24,10 @@ public:
 	inline int getlCPU(){ return lCPU; }
 	inline int getlReserva(){ return lreserva; }
 	inline int getnReserva(){ return nreserva; }
+	inline void setCorreo(string n){ correo=n; }
+	inline void setltiempo(int n){ ltiempo=n; }
+	inline void setlCPU(int n){ lCPU=n; }
+	inline void setlReserva(int n){ lreserva=n; }
 	inline void setnReserva(int n){ nreserva=n; }
 };
 

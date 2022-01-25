@@ -1,8 +1,5 @@
 /*
  * Reserva.cpp
- *
- *  Created on: 24 ene. 2022
- *      Author: HP ELITEBOOK
  */
 
 #include "Reserva.h"
