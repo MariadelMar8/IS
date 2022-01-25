@@ -29,6 +29,8 @@ public:
 	inline void setCPU(int nl){ CPU=nl; }
 	inline void setCluster(string nl){ cluster=nl; }
 	inline void setReservas(list<Reserva> nl){ r=nl; }
+	int getnCPU();
+	int getnReservas();
 	int getnCPUus(int nl);
 	bool disponibilidadmaquina(int ini,int fin,int c);
 };
