@@ -9,7 +9,7 @@ int main(){
 	//Iniciar una lista con usuarios, lista u
 	list<Usuario> u=valorUsuario();
 	string a,x;
-	int b=0,f=0;
+	int b=0,f=0,c1=0;
 	cout<<"Introduce su correo electronico"<<endl;
 	cin>>x;
 	cout<<"Introduce la contraseña"<<endl;
@@ -29,7 +29,7 @@ int main(){
 		cout<<"Este usuario no existe"<<endl;
 		b=6; //Si no existe se salta el while
 	}
-	while(b=!6){
+	while(b!=6){
 		cout<<"            Menu principal"<<endl;
 		cout<<"1.Visualizar informacion del usuario"<<endl;
 		cout<<"2.Consultar reservas"<<endl;
@@ -46,7 +46,6 @@ int main(){
 			cout<<"Opcion no disponible"<<endl;
 			break;
 		case 3:
-			int c=0;
 			cout<<"Realizar reserva:"<<endl;
 			//Comprobamos que no supere el numero de reservas
 			if(A.getlReserva()>A.getnReserva()){
@@ -59,8 +58,8 @@ int main(){
 					if(exitmaquina(m,a)==false){ cout<<"No existe esta maquina"<<endl; }
 					else{
 						cout<<"Introduce el numero de CPUs que desea"<<endl;
-						cin>>c;
-						if(A.getlCPU()<c){ //Comprobamos el limite de CPU
+						cin>>c1;
+						if(A.getlCPU()<c1){ //Comprobamos el limite de CPU
 							cout<<"No puede reservar tantas CPU, excede sus limites"<<endl;
 						}
 						else{  //No excede el limite
@@ -75,14 +74,14 @@ int main(){
 							if(A.getlTiempo()<d){ cout<<"Excede el tiempo posible"<<endl; }
 							else{  //No supera el limite de tiempo
 								list<Maquina>::iterator j;
-								for(j=m.begin();j!=m.end();j++){
-									if(j->getMaquina()==a){ return true; }
+								for(j=m.begin();f!=7564&&j!=m.end();j++){
+									if(j->getMaquina()==a){ f=7564; }
 								}
-								if(j->disponibilidadmaquina(ini,fin,c)==false){ cout<<"No se puede realizar la reserva esos días"<<endl; }
+								if(j->disponibilidadmaquina(ini,fin,c1)==false){ cout<<"No se puede realizar la reserva esos días"<<endl; }
 								else{ //Se puede realizar la reserva
 									Reserva w;
 									w.setrCorreo(x);
-									w.setrCPU(c);
+									w.setrCPU(c1);
 									w.setDini(ini);
 									w.setDfin(fin);
 									list<Reserva> h=j->getReservas();
