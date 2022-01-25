@@ -33,7 +33,7 @@ int Maquina::getnReservas(){
 int Maquina::getnCPUus(int n){//Numero de CPU ocupadas un dia concreto
 	int p=0;
 	for(list<Reserva> l=r.begin();l!=r.end();l++){
-		if(f==l.getDini()){//Hay reserva ese día
+		if(f==l.getDini()){//Hay reserva ese dï¿½a
 			p=p+l.getrCPU();
 		}
 	}
@@ -48,4 +48,3 @@ bool Maquina::disponibilidadmaquina(int ini,int fin,int c){
 	}
 	return true;
 }
-
