@@ -5,14 +5,26 @@
 
 int main(){
 	//Iniciar una lista con maquinas, lista m
+	list<Maquina> m=valorMaquina();
 	//Iniciar una lista con usuarios, lista u
+	list<Usuario> u=valorUsuario();
 	string a,x;
 	int b=0,f=0;
 	cout<<"Introduce su correo electronico"<<endl;
 	cin>>x;
-	cout<<"Introduce la contraseña"<<endl;
+	cout<<"Introduce la contraseÃ±a"<<endl;
 	cin>>a;
-	Usuario A=getUsuario(u,x,&f);
+	Usuario A;
+	for(list<Usuario>::iterator k=u.begin();k!=u.end();k++){
+		if(x==k->getCorreo()){
+			A.setCorreo(x);
+			A.setltiempo(k->getlTiempo());
+			A.setlCPU(k->getlCPU());
+			A.setlReserva(k->getlReserva());
+			A.setnReserva(k->getnReserva());
+			f++;
+		}
+	}
 	if(f==0){
 		cout<<"Este usuario no existe"<<endl;
 		b=6; //Si no existe se salta el while
@@ -48,32 +60,34 @@ int main(){
 					else{
 						cout<<"Introduce el numero de CPUs que desea"<<endl;
 						cin>>c;
-						if(A.getlCPU<c){ //Comprobamos el limite de CPU
+						if(A.getlCPU()<c){ //Comprobamos el limite de CPU
 							cout<<"No puede reservar tantas CPU, excede sus limites"<<endl;
 						}
 						else{  //No excede el limite
 							int ini,fin;
-							cout<<"Introduce el día de inicio de reserva (numero del 1 al 31)"<<endl;
+							cout<<"Introduce el dÃ­a de inicio de reserva (numero del 1 al 31)"<<endl;
 							cin>>ini;
-							cout<<"Introduce el día de fin de reserva (numero del 1 al 31)"<<endl;
+							cout<<"Introduce el dÃ­a de fin de reserva (numero del 1 al 31)"<<endl;
 							cin>>fin;
-							if(ini>=fin){ int d=(31-ini)+fin; }
-							else{ int d=fin-ini; }
+							int d;
+							if(ini>=fin){ d=(31-ini)+fin; }
+							else{ d=fin-ini; }
 							if(A.getlTiempo()<d){ cout<<"Excede el tiempo posible"<<endl; }
 							else{  //No supera el limite de tiempo
-								for(list<Maquina>::iterator j=m.begin();j!=m.end();j++){
-									if(j.getMaquina()==a){ return true; }
+								list<Maquina>::iterator j;
+								for(j=m.begin();j!=m.end();j++){
+									if(j->getMaquina()==a){ return true; }
 								}
-								if(j.disponibilidadmaquina(ini,fin,c)==false){ cout<<"No se puede realizar la reserva esos días"<<endl; }
+								if(j->disponibilidadmaquina(ini,fin,c)==false){ cout<<"No se puede realizar la reserva esos dÃ­as"<<endl; }
 								else{ //Se puede realizar la reserva
 									Reserva w;
 									w.setrCorreo(x);
 									w.setrCPU(c);
 									w.setDini(ini);
 									w.setDfin(fin);
-									list<Reserva> h=j.getReservas();
+									list<Reserva> h=j->getReservas();
 									h.push_back(w);
-									j.setReservas(h);
+									j->setReservas(h);
 									cout<<"Reserva realizada correctamente"<<endl;
 								}
 							}
@@ -81,7 +95,7 @@ int main(){
 					}
 				}
 			}
-			else{ cout<<"No puede realizar más reservas"<<endl; }
+			else{ cout<<"No puede realizar mÃ¡s reservas"<<endl; }
 			break;
 		case 4:
 			cout<<"Opcion no disponible"<<endl;
