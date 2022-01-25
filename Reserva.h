@@ -14,18 +14,18 @@ class Reserva {
 private:
 	string correor;
 	int CPUr;
-	int dini;
+	int dinic;
 	int dfin;
 public:
 	Reserva();
 	inline string getrCorreo(){ return correor; }
 	inline int getrCPU(){ return CPUr; }
-	inline int getDini(){ return dini; }
-	inline int getDfin(){ return dfin; }
-	inline void setrCorreo(string a){ correor=a; }
-	inline void setrCPU(int a){ CPUr=a; }
-	inline void setDini(int a){ dini=a; }
-	inline void setDfin(int a){ dfin=a; }
+	inline int getrDini(){ return dinic; }
+	inline int getrDfin(){ return dfin; }
+	inline void setrCorreo(string n){ correor=n; }
+	inline void setrCPU(int n){ CPUr=n; }
+	inline void setDini(int n){ dinic=n; }
+	inline void setDfin(int n){ dfin=n; }
 };
 
 #endif /* RESERVA_H_ */
