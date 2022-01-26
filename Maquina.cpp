@@ -1,8 +1,5 @@
 /*
  * Maquina.cpp
- *
- *  Created on: 24 ene. 2022
- *      Author: HP ELITEBOOK
  */
 
 #include "Maquina.h"
@@ -12,37 +9,29 @@ Maquina::Maquina() {
 
 }
 
-Maquina::~Maquina() {
-	// TODO Auto-generated destructor stub
-}
-
 int Maquina::getnCPU(){
-	int n=0;
+	int nl=0;
 	for(list<Reserva>::iterator i=r.begin();i!=r.end();i++){
-		n=n+(i->getCPU());
+		nl=nl+(i->getrCPU());
 	}
-	return n;
+	return nl;
 }
 int Maquina::getnReservas(){
-	int n=0;
+	int nl=0;
 	for(list<Reserva>::iterator i=r.begin();i!=r.end();i++){
-		n++;
+		nl++;
 	}
-	return n;
+	return nl;
 }
-int Maquina::getnCPUus(int n){//Numero de CPU ocupadas un dia concreto
-	int p=0;
-	for(list<Reserva> l=r.begin();l!=r.end();l++){
-		if(f==l.getDini()){//Hay reserva ese d�a
-			p=p+l.getrCPU();
-		}
-	}
-	return p;
-}
+
 bool Maquina::disponibilidadmaquina(int ini,int fin,int c){
 	for(int f=ini;f!=fin;f++){  //Comprobamos dia a dia
 		if(ini>31){ini=ini-31;}
-		if((getnCPUus(f)+c)>CPU){
+		int p=0;
+		if((f<=2)||(f>=5)){//Hay reserva ese día
+			p=4;
+		}
+		if((p+c)>CPU){
 			return false;
 		}
 	}
