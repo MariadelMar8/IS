@@ -51,3 +51,7 @@ bool exitmaquina(list<Maquina> m,string a){
 	}
 	return false;
 }
+bool limCPU(Usuario usuar,int num){
+	if(usuar.getlCPU()<num){ return false; }
+	return true;
+}
