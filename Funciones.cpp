@@ -29,6 +29,7 @@ list<Usuario> valorUsuario(){
 	list<Usuario> u1;
 	Usuario uu;
 	uu.setCorreo("i@uco.es");
+	uu.setContra("1");
 	uu.setltiempo(5);
 	uu.setlCPU(6);
 	uu.setlReserva(4);
