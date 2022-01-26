@@ -14,5 +14,6 @@ list<Usuario> valorUsuario();
 Usuario getUsuario(list<Usuario> u,string x,int &f);
 bool exicluster(list<Maquina> m,string a);
 bool exitmaquina(list<Maquina> m,string a);
+bool limCPU(Usuario usuar,int num);
 
 #endif /* FUNCIONES_H_ */
