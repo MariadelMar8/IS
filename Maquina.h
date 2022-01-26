@@ -31,7 +31,6 @@ public:
 	inline void setReservas(list<Reserva> nl){ r=nl; }
 	int getnCPU();
 	int getnReservas();
-	int getnCPUus(int nl);
 	bool disponibilidadmaquina(int ini,int fin,int c);
 };
 
