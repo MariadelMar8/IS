@@ -11,6 +11,8 @@
 list<Reserva> valorReserva();
 list<Maquina> valorMaquina();
 list<Usuario> valorUsuario();
+int CorCorreo(list<Usuario> U,string x);
+int CorCon(list<Usuario> U,Usuario *A,string x,string a);
 Usuario getUsuario(list<Usuario> u,string x,int &f);
 bool exicluster(list<Maquina> m,string a);
 bool exitmaquina(list<Maquina> m,string a);
