@@ -38,6 +38,28 @@ list<Usuario> valorUsuario(){
 	return u1;
 }
 
+int CorCorreo(list<Usuario> U,string x){
+	for(list<Usuario>::iterator k=U.begin();k!=U.end();k++){
+			if(x==k->getCorreo()){ return 1;}
+	}
+	return 0;
+}
+int CorCon(list<Usuario> U,Usuario *A,string x,string a){
+	for(list<Usuario>::iterator k=U.begin();k!=U.end();k++){
+		if(x==k->getCorreo()){
+			if(a==k->getContra()){
+				A->setCorreo(x);
+				A->setltiempo(k->getlTiempo());
+				A->setlCPU(k->getlCPU());
+				A->setlReserva(k->getlReserva());
+				A->setnReserva(k->getnReserva());
+				return 1;
+			}
+		}
+	}
+	return 0;
+}
+
 bool exicluster(list<Maquina> m,string a){
 	for(list<Maquina>::iterator j=m.begin();j!=m.end();j++){ //Comprobamos si existe el cluster
 		if(j->getCluster()==a){//existe cluster
