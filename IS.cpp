@@ -15,18 +15,12 @@ int main(){
 	cout<<"Introduce la contraseña"<<endl;
 	cin>>a;
 	Usuario A;
-	for(list<Usuario>::iterator k=u.begin();k!=u.end();k++){
-		if(x==k->getCorreo()){
-			A.setCorreo(x);
-			A.setltiempo(k->getlTiempo());
-			A.setlCPU(k->getlCPU());
-			A.setlReserva(k->getlReserva());
-			A.setnReserva(k->getnReserva());
-			f++;
-		}
-	}
-	if(f==0){
+	if(CorCorreo(u,x)==0){
 		cout<<"Este usuario no existe"<<endl;
+		b=6; //Si no existe se salta el while
+	}
+	if((CorCon(u,&A,x,a)==0)&&(CorCorreo(u,x)!=0)){
+		cout<<"La contraseña no es correcta"<<endl;
 		b=6; //Si no existe se salta el while
 	}
 	while(b!=6){
@@ -79,14 +73,15 @@ int main(){
 								}
 								if(j->disponibilidadmaquina(ini,fin,c1)==false){ cout<<"No se puede realizar la reserva esos días"<<endl; }
 								else{ //Se puede realizar la reserva
+									cout<<"Introduzca el motivo de la reserva"<<endl;
+									cin>>a;
 									Reserva w;
 									w.setrCorreo(x);
 									w.setrCPU(c1);
 									w.setDini(ini);
 									w.setDfin(fin);
-									list<Reserva> h=j->getReservas();
+									list<Reserva> h=valorReserva();
 									h.push_back(w);
-									j->setReservas(h);
 									cout<<"Reserva realizada correctamente"<<endl;
 								}
 							}
