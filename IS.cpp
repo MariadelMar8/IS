@@ -59,7 +59,7 @@ int main(){
 					else{
 						cout<<"Introduce el numero de CPUs que desea"<<endl;
 						cin>>c1;
-						if(A.getlCPU()<c1){ //Comprobamos el limite de CPU
+						if(limCPU(A,c1)==false){ //Comprobamos el limite de CPU
 							cout<<"No puede reservar tantas CPU, excede sus limites"<<endl;
 						}
 						else{  //No excede el limite
